@@ -1,51 +1,189 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O LEGADO DE AYRTON SENNA | AYRTONFLIX</title>
+
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- User's Requested Font: Chakra Petch -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
-    <title>O LEGADO DE AYRTON SENNA</title>
+
+    <style>
+        /* Configure Tailwind to use the Chakra Petch font */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --senna-yellow: #FFD700;
+            --senna-green: #009900;
+            --senna-red: #D70000;
+        }
+
+        /* Set base styles using the custom font and dark background */
+        body {
+            font-family: 'Chakra Petch', sans-serif;
+            background-color: #121212;
+            color: #E0E0E0;
+        }
+
+        /* Custom utility for the video container aspect ratio */
+        .video-responsive {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .video-responsive iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Custom scrollbar styling for the video category row */
+        .categoria-videos {
+            overflow-x: auto;
+            /* Enable horizontal scrolling */
+            scrollbar-width: thin;
+            scrollbar-color: var(--senna-yellow) #1E1E1E;
+        }
+
+        .categoria-videos::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .categoria-videos::-webkit-scrollbar-track {
+            background: #1E1E1E;
+            border-radius: 10px;
+        }
+
+        .categoria-videos::-webkit-scrollbar-thumb {
+            background-color: var(--senna-yellow);
+            border-radius: 10px;
+        }
+    </style>
+
+    <!-- Tailwind Configuration to use custom colors and font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'senna-yellow': '#FFD700',
+                        'senna-green': '#009900',
+                        'senna-red': '#D70000',
+                        'dark-bg': '#121212',
+                        'dark-card': '#1E1E1E',
+                    },
+                    fontFamily: {
+                        sans: ['Chakra Petch', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
-<body>
-    <header>AYRTONFLIX</header>
+<body class="min-h-screen">
 
-    <section class="chamada">
-        <div class="chamada-texto">
-            <h1>A Velocidade Além da Curva: O Legado Eterno de Ayrton Senna.</h1>
-            <p>#Rei de Mônaco</p>
+    <!-- HEADER -->
+    <header class="bg-dark-card shadow-lg py-4 px-6 border-b-4 border-senna-yellow text-4xl font-extrabold tracking-widest text-senna-yellow text-center uppercase">
+        AYRTONFLIX
+    </header>
+
+    <!-- SECTION: CHAMADA (HERO/MAIN VIDEO) -->
+    <section class="chamada container mx-auto p-4 md:p-8 flex flex-col lg:flex-row items-center justify-between gap-8 mt-4">
+
+        <!-- Text Block -->
+        <div class="chamada-texto lg:w-1/2">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight text-senna-green">
+                A Velocidade Além da Curva: O Legado Eterno de Ayrton Senna.
+            </h1>
+            <p class="text-xl md:text-2xl text-senna-yellow font-medium">#ReiDeMônaco</p>
         </div>
 
-        <div>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/llTiTgRn9SI?si=rp-2xJCpJxwR3jUZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-    </section>
-
-    <section class="categoria">
-        <h2>Filmes e séries</h2>
-        <div class="categoria-videos">
-            <a href="https://www.youtube.com/watch?v=cs15QqG6Gjc">
-                <img src="https://img.youtube.com/vi/cs15QqG6Gjc/maxresdefault.jpg" />
-            </a>
-            <a href="https://www.youtube.com/watch?v=nCmIwcycUJ8">
-                <img src="https://img.youtube.com/vi/nCmIwcycUJ8/maxresdefault.jpg" />
-            </a>
-            <a href="https://www.youtube.com/watch?v=FvRmEapoHRc">
-                <img src="https://img.youtube.com/vi/FvRmEapoHRc/maxresdefault.jpg" />
-            </a>
-            <a href="https://www.youtube.com/watch?v=Ipkw_hWW-Hw">
-                <img src="https://img.youtube.com/vi/Ipkw_hWW-Hw/maxresdefault.jpg" />
-            </a>
-            <a href="https://www.youtube.com/watch?v=d4DzMNGoyis">
-                <img src="https://img.youtube.com/vi/d4DzMNGoyis/maxresdefault.jpg" />
-            </a>
+        <!-- Video Embed Block -->
+        <div class="lg:w-1/2 w-full bg-dark-card rounded-xl shadow-2xl overflow-hidden border-2 border-senna-red transform hover:scale-[1.02] transition duration-300">
+            <div class="video-responsive">
+                <!-- Main video: Ayrton Senna's Lap in Monaco -->
+                <iframe src="https://www.youtube.com/embed/llTiTgRn9SI?si=rp-2xJCpJxwR3jUZ"
+                    title="Ayrton Senna 1988 Monaco Qualifying Lap" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
         </div>
     </section>
+
+    <!-- SECTION: CATEGORY (FILMS AND SERIES) -->
+    <section class="categoria container mx-auto p-4 md:p-8 mt-12">
+        <h2 class="text-4xl font-bold mb-6 border-l-4 border-senna-yellow pl-4 text-senna-yellow">
+            Filmes e Séries
+        </h2>
+
+        <!-- Horizontal Scrollable Video Gallery -->
+        <div class="categoria-videos flex space-x-4 pb-4">
+
+            <!-- Video Card 1 -->
+            <a href="https://www.youtube.com/watch?v=cs15QqG6Gjc"
+                class="flex-shrink-0 w-64 md:w-80 h-auto rounded-lg overflow-hidden shadow-xl border-2 border-senna-green transform hover:scale-105 transition duration-300">
+                <img src="https://img.youtube.com/vi/cs15QqG6Gjc/maxresdefault.jpg" alt="Senna: O Brasileiro, O Herói, O Campeão"
+                    class="w-full h-auto object-cover"
+                    onerror="this.onerror=null; this.src='https://placehold.co/1280x720/1E1E1E/FFD700?text=SENNA+DOC+1';" />
+            </a>
+
+            <!-- Video Card 2 -->
+            <a href="https://www.youtube.com/watch?v=nCmIwcycUJ8"
+                class="flex-shrink-0 w-64 md:w-80 h-auto rounded-lg overflow-hidden shadow-xl border-2 border-senna-green transform hover:scale-105 transition duration-300">
+                <img src="https://img.youtube.com/vi/nCmIwcycUJ8/maxresdefault.jpg" alt="Senna: O Filme (Documentário)"
+                    class="w-full h-auto object-cover"
+                    onerror="this.onerror=null; this.src='https://placehold.co/1280x720/1E1E1E/FFD700?text=SENNA+DOC+2';" />
+            </a>
+
+            <!-- Video Card 3 -->
+            <a href="https://www.youtube.com/watch?v=FvRmEapoHRc"
+                class="flex-shrink-0 w-64 md:w-80 h-auto rounded-lg overflow-hidden shadow-xl border-2 border-senna-green transform hover:scale-105 transition duration-300">
+                <img src="https://img.youtube.com/vi/FvRmEapoHRc/maxresdefault.jpg" alt="A Lenda de Senna: Grandes Momentos"
+                    class="w-full h-auto object-cover"
+                    onerror="this.onerror=null; this.src='https://placehold.co/1280x720/1E1E1E/FFD700?text=SENNA+DOC+3';" />
+            </a>
+
+            <!-- Video Card 4 -->
+            <a href="https://www.youtube.com/watch?v=Ipkw_hWW-Hw"
+                class="flex-shrink-0 w-64 md:w-80 h-auto rounded-lg overflow-hidden shadow-xl border-2 border-senna-green transform hover:scale-105 transition duration-300">
+                <img src="https://img.youtube.com/vi/Ipkw_hWW-Hw/maxresdefault.jpg" alt="Senna: Sua História em Detalhes"
+                    class="w-full h-auto object-cover"
+                    onerror="this.onerror=null; this.src='https://placehold.co/1280x720/1E1E1E/FFD700?text=SENNA+DOC+4';" />
+            </a>
+
+            <!-- Video Card 5 -->
+            <a href="https://www.youtube.com/watch?v=d4DzMNGoyis"
+                class="flex-shrink-0 w-64 md:w-80 h-auto rounded-lg overflow-hidden shadow-xl border-2 border-senna-green transform hover:scale-105 transition duration-300">
+                <img src="https://img.youtube.com/vi/d4DzMNGoyis/maxresdefault.jpg" alt="Senna - A Trajetória de um Ídolo"
+                    class="w-full h-auto object-cover"
+                    onerror="this.onerror=null; this.src='https://placehold.co/1280x720/1E1E1E/FFD700?text=SENNA+DOC+5';" />
+            </a>
+            
+        </div>
+    </section>
+    
+    <!-- FOOTER/CREDITS -->
+    <footer class="mt-16 py-6 text-center text-sm text-gray-400 bg-dark-card border-t border-senna-yellow/50">
+        <p>Homenagem a Ayrton Senna da Silva. Criado com paixão e velocidade.</p>
+        <p class="text-senna-yellow mt-1">#SAUDADESENNA</p>
+    </footer>
 
 </body>
 
